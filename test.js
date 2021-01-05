@@ -40,6 +40,8 @@
 // console.log(calc('aaaaaddddr'));
 
 
+
+//returns the addition of both numbers as base 2.
 const addBinary = (a, b) => {
     let sum = parseInt(a) + parseInt(b);
     let binaryNumber = 0;
