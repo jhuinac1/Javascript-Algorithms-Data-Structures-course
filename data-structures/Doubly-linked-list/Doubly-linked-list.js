@@ -147,12 +147,12 @@ class DoublyLinkedList {
      */
     get(index){
         if(typeof index !== "number" || index === undefined){
-            return null
+            return null;
         }
         if( index < 0 || index >= this.length){
             return null;
         }
-        let halfLength = Math.floor(this.length / 2)
+        let halfLength = Math.floor(this.length / 2);
         if(index <= halfLength ){
             // console.log("lowerrrr!!", halfLength);
             let foundNode = this.head;
@@ -178,7 +178,7 @@ class DoublyLinkedList {
     // Replacing the Value of a node to the in a Doubly Linked LIst
     /**
      * PSEUDO
-     * - Create a variable with is the result of the get method at the index passed to the function
+     * - Create a variable which is the result of the get method at the index passed to the function
      *      >If the get method return a valid node, set the value of that node to be  the value pased to the function
      *      >Return true
      * - Otherwise, return false
@@ -225,6 +225,63 @@ class DoublyLinkedList {
             prevNode.next = newNode;
             this.length++;
         }
+        return true;
+    }
+
+    //remove(index)
+    // Removing a node in a Doubly Linked List by a certain position 👻 
+    /**PSEUDO
+     * - If the index is less than zero or greater than or equal to the length return undefined
+     * - If the index is 0, use shift()
+     * - if the index is the same as the length -1, pop
+     * - Use the get() method to retrieve the item to be removed
+     * - Update the next and prev properties to remove the found node from the list 
+     * - Set next and prev to null on the found node
+     * - Decrement the length
+     * - Return the removed node 
+     * 
+     */
+    remove(index){
+        if(index < 0 || index >= this.length){
+            return undefined;
+        }
+        if(index === 0){
+            return this.shift();
+        }
+        if(index === this.length -1 ){
+            return this.pop();
+        }
+        const removedNode = this.get(index);
+        const prevNode = removedNode.prev;
+        prevNode.next = removedNode.next;
+        prevNode.next.prev = prevNode;
+        removedNode.next = null;
+        removedNode.prev = null;
+        this.length--;
+        return removedNode;
+    }
+    //reverse()
+    //This function should reverse all of the nodes in a DoublyLinkedList, and should return the list; 🔥 
+    reverse(){
+        if(this.length < 2){
+            return this;
+        }
+        let tempNode = this.head.next;
+        if(this.length > 2){
+            while(tempNode !== this.tail){
+                const prevNode = tempNode.prev;
+                const nextNode = tempNode.next;
+                tempNode.next = prevNode;
+                tempNode.prev = nextNode;
+                tempNode = nextNode;
+            }
+        }
+        this.head.prev = this.head.next;
+        this.head.next = null;
+        this.tail.next = this.tail.prev;
+        this.tail.prev = null;
+        this.tail = this.head;
+        this.head = tempNode;
         return this;
     }
 
@@ -238,9 +295,11 @@ const newDoubly = new DoublyLinkedList();
 
 
 // newDoubly.unshift();
-newDoubly.unshift(10);
-newDoubly.unshift(80);
-newDoubly.unshift(80);
-newDoubly.unshift(70);
-console.log(newDoubly.insert(0, 100))
+// newDoubly.unshift(10);
+// newDoubly.unshift(200);
+// newDoubly.unshift(80);
+// newDoubly.unshift(70);
+// newDoubly.insert(0, 100)
+// console.log(newDoubly.remove(-1));
+// console.log(newDoubly);
 // console.log(newDoubly);
