@@ -9,4 +9,4 @@ It has a root, and references 0 or multiple nodes.
 #### Lists - linear
 #### Trees - Nonlinear
 
-![Trees](./Trees.png) 
+![Trees](/Trees.png) 
