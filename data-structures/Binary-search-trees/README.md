@@ -43,4 +43,7 @@ It has a root, and references 0 or multiple nodes.
     Every node to the right of a parent node is always greater than the parent
 
 
- 
+# Big O of BST
+
+- Insertion - O(log n)
+- Searching - O(log n)
