@@ -35,6 +35,15 @@ class PriorityQueue {
         return this.values.length;
     }
     minElement(index1, index2){
+        console.log("index", index1, "index 2:", index2);
+        console.log("indexvalue:", this.values[index1]);
+        console.log("index2value:", this.values[index2]);
+        if(this.values[index2] === undefined){
+            if(this.values[index1] === undefined){
+                return undefined
+            }
+            return index1;
+        }
         return (this.values[index2].priority <= this.values[index1].priority)? index2: index1;
     }
     swapElements(index1, index2){
@@ -70,8 +79,9 @@ class PriorityQueue {
         
         while(parentIndex < this.lastItemIndex()){
             let minSiblingIdx = this.minElement(this.getFirstChild(parentIndex), this.getSecondChild(parentIndex));
+            if(minSiblingIdx === undefined) { break;}
             if(this.values[parentIndex].priority < this.values[minSiblingIdx].priority || minSiblingIdx > this.lastItemIndex()){
-                break
+                break;
             }
             this.swapElements( parentIndex, minSiblingIdx);
             parentIndex = minSiblingIdx;
@@ -91,11 +101,23 @@ const newQ = new PriorityQueue();
 // newQ.enqueue("ok", 1);
 // newQ.enqueue("ok", 0);
 
-newQ.enqueue("gunshot wound", 5);
-newQ.enqueue("common cold", 1);
-newQ.enqueue("high fever", 4);
-newQ.enqueue("broken arm", 2);
-newQ.enqueue("glass in foot", 3);
+// newQ.enqueue("gunshot wound", 5);
+// newQ.enqueue("common cold", 1);
+// newQ.enqueue("high fever", 4);
+// newQ.enqueue("broken arm", 2);
+// newQ.enqueue("glass in foot", 3);
 
+// console.log(newQ);
+// newQ.dequeue();
+// console.log(newQ);
+// newQ.dequeue();
+// console.log(newQ);
+// newQ.dequeue();
+// console.log(newQ);
+// newQ.dequeue();
+// console.log(newQ);
+// newQ.dequeue();
+// console.log(newQ);
+// newQ.dequeue();
+// console.log(newQ);
 
-console.log(newQ);
