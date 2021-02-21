@@ -23,7 +23,7 @@ Many of his discoveries and algorithms are still commonly used to this day.
 - Use a weighted graph
 - Every time we look to visit a new node, we pick the node with the smallest known distance to visit first.
 - Once we've moved to the node we're going to visit, we look at each of its neightbors
-- For each neighboring node, we calculate the distace by summing the toal edges that lead to the node we're _checking from the starting node._
+- For each neighboring node, we calculate the distace by summing the total edges that lead to the node we're _checking from the starting node._
 - If the new total distace to a node is less than the previous total, we store the new shorter distance for that node.
 
 ![Form](./form-for-dijkstra-algo.PNG)
